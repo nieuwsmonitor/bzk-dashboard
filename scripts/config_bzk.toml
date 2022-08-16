@@ -1,0 +1,43 @@
+[amcat]
+  [amcat.default]
+    host = "http://localhost:5000"
+    username = "admin"
+    password = "admin"
+    index = "bzk"
+  [amcat.bzk]
+    host = "http://dashboard2.bzk.nieuwsmonitor.org/api"
+    username = "admin"
+    password = "admin"
+    index = "bzk"
+
+[queries_topic]
+sheet_id = "19-yAyvfFTUVI0wFJsBlQ4IpbERufYdSLj4n8Qbt45WQ"
+sheet_range = "topics!A:B"
+
+[queries_person]
+sheet_id = "19-yAyvfFTUVI0wFJsBlQ4IpbERufYdSLj4n8Qbt45WQ"
+sheet_range = "bewindslieden!A:B"
+
+[twitter]
+token = "AAAAAAAAAAAAAAAAAAAAADV5agAAAAAAx66UuY2e8MA4RfnL8wfr0BVOHCs%3DroxeB1GbIiIRwBXYTzCuAI8EUoq0YxfVOdEnkGmUsFsQ6vLM11"
+
+[google]
+client_secret = '''{"installed":{
+      "client_id":"298285884184-4pijg18ufms0kvklug1el2o7b5tqltgs.apps.googleusercontent.com",
+      "project_id":"talkshows-329811",
+      "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+      "token_uri":"https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret":"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",
+      "redirect_uris":["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
+   }}'''
+analytics_secret = '''{"installed": {
+      "client_id": "1069101858500-5u2fj57vfotueatr7cc50fmmklkfgpki.apps.googleusercontent.com",
+      "project_id": "nlpo-341212",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": ["http://localhost"]
+    }}'''
+    
