@@ -6,8 +6,8 @@ import { Modal } from "semantic-ui-react";
 import "./App.css";
 import Dashboards from "./Components/dashboards/Dashboards";
 
-//const HOST = "http://dashboard2.bzk.nieuwsmonitor.org/api";
-const HOST = "http://localhost:5000";
+const HOST = "https://bzk2.nieuwsmonitor.org/api";
+//const HOST = "http://localhost:5000";
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies([

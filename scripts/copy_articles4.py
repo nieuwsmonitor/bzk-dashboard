@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     src = AmcatAPI(args.source_url)
     art3 = copy_articles(src, args.source_project, args.source_set)
-    conn=AmcatClient("http://localhost:5000","admin","admin")
+    conn=AmcatClient("https://bzk2.nieuwsmonitor.org/api","admin","admin")
     index_name = "bzk"
     check_index(conn, index_name, fields=FIELDS)
     print(f"indexnaam is {index_name} ")

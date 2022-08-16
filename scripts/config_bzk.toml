@@ -5,7 +5,7 @@
     password = "admin"
     index = "bzk"
   [amcat.bzk]
-    host = "http://dashboard2.bzk.nieuwsmonitor.org/api"
+    host = "https://bzk2.nieuwsmonitor.org/api"
     username = "admin"
     password = "admin"
     index = "bzk"
