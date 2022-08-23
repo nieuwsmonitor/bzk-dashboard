@@ -14,6 +14,11 @@
 sheet_id = "19-yAyvfFTUVI0wFJsBlQ4IpbERufYdSLj4n8Qbt45WQ"
 sheet_range = "topics!A:B"
 
+
+[queries_deeltopic]
+sheet_id = "19-yAyvfFTUVI0wFJsBlQ4IpbERufYdSLj4n8Qbt45WQ"
+sheet_range = "deelonderwerpen!B:C"
+
 [queries_person]
 sheet_id = "19-yAyvfFTUVI0wFJsBlQ4IpbERufYdSLj4n8Qbt45WQ"
 sheet_range = "bewindslieden!A:B"

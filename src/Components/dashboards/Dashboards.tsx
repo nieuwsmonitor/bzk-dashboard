@@ -6,9 +6,26 @@ import DashboardBZK from "./DashboardBZK";
 import DashboardPersoon from "./DashboardPersoon";
 
 export const PERSONEN = {
-  "De Jonge": { topics: ["Bouwen_Wonen", "Rijksvastgoed"] },
+  "De Jonge": { topics: ["Bouwen_Wonen", "Rijksvastgoed", "Ruimte"] },
   "Van Huffelen": { topics: ["Koninkrijksrelaties", "Digitalisering"] },
-  "Bruins Slot": { topics: ["AIVD", "CZW"] },
+  "Bruins Slot": { topics: ["AIVD", "CZW", "Bestuur", "Rijksorganisatie"] },
+};
+
+export const SUBTOPICS = {
+  "De Jonge": {
+    subtopics: ["Woningcorporaties", "Woningmarkt", "Huurbeleid", "Bouwen"],
+  },
+  "Van Huffelen": {
+    subtopics: ["Burgerregistratie", "Digitalisering overheid", "Nepnieuws"],
+  },
+  "Bruins Slot": {
+    subtopics: [
+      "Democratie",
+      "Regiodeal",
+      "Gemeentelijke financien",
+      "Partijfinanciering",
+    ],
+  },
 };
 
 export type DashboardValue = "BZK" | keyof typeof PERSONEN;

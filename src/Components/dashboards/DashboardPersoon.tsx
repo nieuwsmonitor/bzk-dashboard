@@ -4,7 +4,11 @@ import { Container, Grid } from "semantic-ui-react";
 import { FILTERFIELDS } from "../../omroepen";
 import { InfoHeader } from "../InfoHeader";
 import MetricTile from "../metrics/MetricTile";
-import { BewindspersoonDashboardProps, PERSONEN } from "./Dashboards";
+import {
+  BewindspersoonDashboardProps,
+  PERSONEN,
+  SUBTOPICS,
+} from "./Dashboards";
 
 export const MEDIA = [
   "Landelijke kranten",
@@ -26,6 +30,8 @@ export default function DashboardPersoon({
     1
   ).toISOString();
   const topics = PERSONEN[name].topics;
+  const subtopics = SUBTOPICS[name].subtopics;
+
   const q = addFilter(query, { bewindspersoon: { values: [name] } });
 
   if (index == null) return null;
@@ -48,6 +54,15 @@ export default function DashboardPersoon({
           key={topic}
           index={index}
           query={addFilter(q, { topic: { values: [topic] } })}
+        />
+      ))}
+      <h2>Deelonderwerpen deze maand vergeleken met vorige maand</h2>
+      {subtopics.map((subtopic) => (
+        <MetricTile
+          label={subtopic}
+          key={subtopic}
+          index={index}
+          query={addFilter(q, { subtopic: { values: [subtopic] } })}
         />
       ))}
 
@@ -77,39 +92,44 @@ export default function DashboardPersoon({
         <Grid.Row stretched>
           <Grid.Column width={8}>
             <InfoHeader
-              text="Aantal artikelen per mediumtype"
-              info="In deze analyse wordt per mediumtype het aantal items per dag weergegeven."
-            />
-
-            <AggregateResult
-              index={index}
-              query={q}
-              height={400}
-              options={{
-                display: "linechart",
-                axes: [
-                  { field: "date", interval: "week" },
-                  { field: "medium" },
-                ],
-              }}
-            />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <InfoHeader
-              text="Aantal artikelen per mediumtype"
-              info="In deze analyse wordt per mediumtype het aantal items per dag weergegeven."
+              text="Aantal artikelen per onderwerp"
+              info="In deze analyse wordt per thema het aantal items per dag weergegeven."
             />
 
             <AggregateResult
               index={index}
               query={addFilter(q, {
+                bewindspersoon: { values: [name] },
                 topic: { values: topics },
               })}
               height={400}
               options={{
-                limit: 2,
+                limit: 3,
                 display: "linechart",
                 axes: [{ field: "date", interval: "week" }, { field: "topic" }],
+              }}
+            />
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <InfoHeader
+              text="Aantal artikelen per subthema binnen Bouwen en Wonen"
+              info="In deze analyse wordt per subthema binnen bouwen en wonen het aantal items per dag weergegeven."
+            />
+
+            <AggregateResult
+              index={index}
+              query={addFilter(q, {
+                bewindspersoon: { values: [name] },
+                subtopic: { values: subtopics },
+              })}
+              height={400}
+              options={{
+                limit: 4,
+                display: "linechart",
+                axes: [
+                  { field: "date", interval: "week" },
+                  { field: "subtopic" },
+                ],
               }}
             />
           </Grid.Column>
@@ -118,7 +138,7 @@ export default function DashboardPersoon({
         <Grid.Row stretched>
           <Grid.Column width={8}>
             <InfoHeader
-              text={"Landelijke Dagbladen"}
+              text={"Aandacht in de landelijke dagbladen"}
               info="Aandacht in de landelijke dagbladen"
             />
             <AggregateResult
@@ -135,7 +155,7 @@ export default function DashboardPersoon({
           </Grid.Column>
           <Grid.Column width={8}>
             <InfoHeader
-              text={"Regionale kranten"}
+              text={"Aandacht in de regionale dagbladen (top-10)"}
               info="Aandacht in de regionale kranten (top-10)"
             />
             <AggregateResult
